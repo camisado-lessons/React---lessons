@@ -2,21 +2,20 @@ import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const [checked, setChecked] = useState(true);
-  const [result, setResult] = useState(true);
+  const [checkedHtml, setCheckedHtml] = useState(false);
+  const [checkedCss, setCheckedCss] = useState(false);
+  const [checkedJs, setCheckedJs] = useState(false);
 
   return (
     <div className="App">
-      <input type='checkbox' checked={checked} onChange={() => setChecked(!checked)} />
-      <button onClick={() => setResult(checked ? 'Hello' : 'Goodbye')}>btn</button>
-      <p>{result}</p>
+      <input type="checkbox" checked={checkedHtml} onChange={() => setCheckedHtml(!checkedHtml)} />
+      <input type="checkbox" checked={checkedCss} onChange={() => setCheckedCss(!checkedCss)} />
+      <input type="checkbox" checked={checkedJs} onChange={() => setCheckedJs(!checkedJs)} />
+      <p>You know: {checkedHtml ? 'html' : ''}</p>
+      <p>You know: {checkedCss ? 'css' : ''}</p>
+      <p>You know: {checkedJs ? 'js' : ''}</p>
     </div>
   );
 }
 
 export default App;
-
-
-/* 
-  Задача: Дан чекбокс, кнопка и абзац. По клику на кнопку, если чекбокс отмечен, выведите в абзац текст приветствия с пользователем, а если не отмечен - текст прощания.
-*/

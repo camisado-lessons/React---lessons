@@ -2,18 +2,28 @@ import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const [checkedHtml, setCheckedHtml] = useState(false);
-  const [checkedCss, setCheckedCss] = useState(false);
-  const [checkedJs, setCheckedJs] = useState(false);
+  const [checked, setChecked] = useState(false);
+  let message;
+  if(checked) {
+    message = <div>
+      <h2>Ура, вам уже есть 18</h2>
+      <p>здесь расположен контент только для взрослых</p>
+    </div>
+  } else {
+    message = <div>
+      <p>
+        увы, вам еще нет 18 лет:(
+      </p>
+    </div>
+  }
 
   return (
     <div className="App">
-      <input type="checkbox" checked={checkedHtml} onChange={() => setCheckedHtml(!checkedHtml)} />
-      <input type="checkbox" checked={checkedCss} onChange={() => setCheckedCss(!checkedCss)} />
-      <input type="checkbox" checked={checkedJs} onChange={() => setCheckedJs(!checkedJs)} />
-      <p>You know: {checkedHtml ? 'html' : ''}</p>
-      <p>You know: {checkedCss ? 'css' : ''}</p>
-      <p>You know: {checkedJs ? 'js' : ''}</p>
+      <label>
+        Вам есть 18 лет?
+        <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
+      </label>  
+      {message}
     </div>
   );
 }

@@ -2,16 +2,18 @@ import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const [checked, setChecked] = useState(false);
-  let message;
-  if(checked) {
-    message = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat et quo adipisci fuga aliquid. Quibusdam, repudiandae sunt inventore quidem ea aspernatur totam est numquam saepe autem sint rem odio cum?';
-  }
+  const [city, setCity] = useState('');
 
   return (
     <div className="App">
-      <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
-      <p>{message}</p>
+      <select value={city} onChange={event => setCity(event.target.value)}>
+        <option>Витебск</option>
+        <option>Минск</option>
+        <option>Гомель</option>
+        <option>Гродно</option>
+        <option>Могилев</option>
+      </select>
+      <p>Ваш город: {city}</p>
     </div>
   );
 }

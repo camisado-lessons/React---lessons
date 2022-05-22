@@ -10,28 +10,29 @@ function App() {
   
   return (
     <div className="App">
+      <p>Какой ваш любимый язык программирования?</p>
       <input
         type="radio"
         name="radio"
-        value="1"
-        checked={value === '1' ? true : false} 
+        value="JavaScript"
+        checked={value === 'JavaScript' ? true : false} 
         onChange={changeHandler}
       />
       <input 
         type="radio"
         name="radio"
-        value="2"
-        checked={value === "2" ? true : false}
+        value="Phyton"
+        checked={value === "Phyton" ? true : false}
         onChange={changeHandler}
       />
       <input 
         type="radio"
         name="radio"
-        value="3"
-        checked={value === "3" ? true: false}
+        value="PHP"
+        checked={value === "PHP" ? true: false}
         onChange={changeHandler} 
       />
-      <p>{value}</p>
+      <p>{value === 'JavaScript' ? 'Поздравляю ваш язык JavaScript' : value}</p>
     </div>
   );
 }

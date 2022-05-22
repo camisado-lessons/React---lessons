@@ -2,19 +2,36 @@ import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const texts = ['Минск', 'Витебск', 'Гродно', 'Брест'];
-	const [value, setValue] = useState('');
-  
-  const options = texts.map((text, index) => {
-    return <option key={index}>{text}</option>;
-  })
+  const [value, setValue] = useState(1);
 
+  function changeHandler(event) {
+    setValue(event.target.value);
+  }
+  
   return (
     <div className="App">
-      <select value={value} onChange={event => setValue(event.target.value)}>
-        {options}
-      </select>
-      <p>Ваш город: {value}</p>
+      <input
+        type="radio"
+        name="radio"
+        value="1"
+        checked={value === '1' ? true : false} 
+        onChange={changeHandler}
+      />
+      <input 
+        type="radio"
+        name="radio"
+        value="2"
+        checked={value === "2" ? true : false}
+        onChange={changeHandler}
+      />
+      <input 
+        type="radio"
+        name="radio"
+        value="3"
+        checked={value === "3" ? true: false}
+        onChange={changeHandler} 
+      />
+      <p>{value}</p>
     </div>
   );
 }

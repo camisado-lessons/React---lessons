@@ -2,18 +2,19 @@ import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const [city, setCity] = useState('');
+  const texts = ['Минск', 'Витебск', 'Гродно', 'Брест'];
+	const [value, setValue] = useState('');
+  
+  const options = texts.map((text, index) => {
+    return <option key={index}>{text}</option>;
+  })
 
   return (
     <div className="App">
-      <select value={city} onChange={event => setCity(event.target.value)}>
-        <option>Витебск</option>
-        <option>Минск</option>
-        <option>Гомель</option>
-        <option>Гродно</option>
-        <option>Могилев</option>
+      <select value={value} onChange={event => setValue(event.target.value)}>
+        {options}
       </select>
-      <p>Ваш город: {city}</p>
+      <p>Ваш город: {value}</p>
     </div>
   );
 }
